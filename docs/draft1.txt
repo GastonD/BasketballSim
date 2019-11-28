@@ -1,0 +1,86 @@
+class Player{
+    /*attributes*/
+    shooting;
+    driving;
+    free_throws;
+    zone_defense;
+    mtm_defense;
+    speed;
+    passing;
+
+    /*actions*/
+
+    pass(Player target_player){
+
+    }
+
+    shoot(){}
+
+    drive(){}
+
+    defend(){}
+
+    GetOVR(){
+        OVR = Average(passing + speed + mtm_defense + zone_defense + shooting + driving + free_throws);
+        return OVR;
+    }
+    
+}
+
+class Team{
+    list players;
+    defense_type;
+
+    /*actions*/
+
+    calculateTeamOVR(){
+        for each (player){
+            OVR = OVR + player.GetOVR();
+        }
+    }
+
+
+
+}
+
+class Match{
+    Team home_team;
+    Team away_team;
+    home_score;
+    away_score;
+    turns = 100;
+    quarter;
+    court;
+
+    possession(atk_team, def_team){
+        atk_team action;
+        if (def_team success?){
+            switchBallPossession();
+            turns--;
+            currentPossessionTurns = 0;
+        }
+        if (currentPossessionTurns > 5){
+            switchBallPossession();
+        }
+
+        if(atk_team action == shoot2 && atk_team action == success){
+            atk_team.score2;
+        }
+
+        if(atk_team action == shoot3 && atk_team action == success){
+            atk_team.score3;
+        }
+
+        if(atk_team action == pass && atk_team action == success){
+            currentPossessionTurn++;
+            moveBall();
+            nextTurn;
+        }
+
+    }
+
+    score(){
+        
+    }
+
+}
