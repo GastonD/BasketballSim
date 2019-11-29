@@ -9,8 +9,8 @@ namespace BasketballSim
         private String[] lastNames = null;
         private String[] teamNames = null;
         NameGenerator(){
-            firstNames = new String[10]{"Lucas","Gaston","Juan","Carlos","Santiago","Ezequiel","Matias","Federico","Ignacio","Osvaldo"};
-            lastNames = new String[10]{"Lopez", "Sanchez","Perez","Fernandez","Alvarez","Smith","James","Thompson","Curry","Harden"};
+            firstNames = new String[20]{"Lucas","Gaston","Juan","Carlos","Santiago","Ezequiel","Matias","Federico","Ignacio","Osvaldo","James","Steph","LeBron","Josh","Michael","Karl","George","Klay","Giannis","Anthony"};
+            lastNames = new String[15]{"Lopez", "Sanchez","Perez","Fernandez","Alvarez","Smith","James","Thompson","Curry","Harden","Jordan","Leonard","Davis","George","Middleton"};
             teamNames = new String[10]{"Ateneo","Aglo","Amerika","Triglav","Caballito Heads","Proyecto Basquet B","Sahores","THT","Betam","Sholem"};
         }
 

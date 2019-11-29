@@ -66,6 +66,8 @@ namespace BasketballSim
             Console.WriteLine("PLANILLA");
             printBoxScore(teamTwoBoxScore);
             
+            LeagueSimulation.Instance.addPoints(teamOneBoxScore);
+            LeagueSimulation.Instance.addPoints(teamTwoBoxScore);
         }
 
         private void printBoxScore(Dictionary<string, int> boxScore){

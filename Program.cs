@@ -16,8 +16,16 @@ namespace BasketballSim
 
             Console.WriteLine("");
             
-            Game partido = new Game(t1, t2);
-            partido.playGame();
+            
+            int totalGamesPlayed = 0;
+            for(int i = 1; i < 6; i++){
+                Game partido = new Game(t1, t2);
+                partido.playGame();
+                totalGamesPlayed = i;
+            }
+            Console.WriteLine("Se jugaron: "+totalGamesPlayed.ToString() + " partidos.");
+            LeagueSimulation.Instance.showStats(totalGamesPlayed);
+            //partido.playGame();
             
         }
 
