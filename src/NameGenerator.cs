@@ -5,10 +5,12 @@ namespace BasketballSim
     public sealed class NameGenerator
     {
 
-        private String[] playerNames = null;
+        private String[] firstNames = null;
+        private String[] lastNames = null;
         private String[] teamNames = null;
         NameGenerator(){
-            playerNames = new String[10]{"Lucas","Gaston","Juan","Carlos","Santiago","Ezequiel","Matias","Federico","Ignacio","Osvaldo"};
+            firstNames = new String[10]{"Lucas","Gaston","Juan","Carlos","Santiago","Ezequiel","Matias","Federico","Ignacio","Osvaldo"};
+            lastNames = new String[10]{"Lopez", "Sanchez","Perez","Fernandez","Alvarez","Smith","James","Thompson","Curry","Harden"};
             teamNames = new String[10]{"Ateneo","Aglo","Amerika","Triglav","Caballito Heads","Proyecto Basquet B","Sahores","THT","Betam","Sholem"};
         }
 
@@ -27,7 +29,11 @@ namespace BasketballSim
 
     public string getRndPlayerName(){
         Random rnd = new Random();
-        return playerNames[rnd.Next(0,playerNames.Length - 1)];
+        string name = "";
+        name += firstNames[rnd.Next(0,firstNames.Length - 1)];
+        name += " ";
+        name += lastNames[rnd.Next(0,lastNames.Length - 1)];
+        return name;
     }
 
     public string getRndTeamName(){
@@ -38,7 +44,7 @@ namespace BasketballSim
 //METODOS PARA DEBUGEAR Y TEST
 //TODO: BORRAR?
     public int getPlayerArrayLength(){
-        return playerNames.Length;
+        return firstNames.Length;
     }
 
     public int getTeamArrayLength(){
@@ -46,7 +52,7 @@ namespace BasketballSim
     }
 
     public void printNames(){
-        foreach(string name in playerNames) 
+        foreach(string name in firstNames) 
                 Console.Write(name + " "); 
     }
 

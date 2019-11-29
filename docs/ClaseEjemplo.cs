@@ -6,7 +6,7 @@ namespace BasketballSim
     {
 
         public ClaseEjemplo(){
-            
+            //<>
         }
         public string ReturnMessage()
         {
