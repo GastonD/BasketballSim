@@ -21,7 +21,6 @@ namespace BasketballSim
 
             Game partido = new Game(t1, t2);
             partido.playGame();
-            //TODO Poner lógica de jugar partido;
             
         }
 

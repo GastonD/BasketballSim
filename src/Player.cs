@@ -6,6 +6,7 @@ namespace BasketballSim
 
     public class Player
     {
+        private readonly string playerName;
         private readonly int twoPtRtg;
         private readonly int threePtRtg;
         private readonly int defRtg;
