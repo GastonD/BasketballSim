@@ -35,5 +35,11 @@ namespace BasketballSim
             }
             return DefRtg;
         }
+
+        public void showRoster(){
+            foreach(Player p in players){
+                Console.WriteLine(p.getName() + " " + p.getOVR());
+            }
+        }
     }
 }

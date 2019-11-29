@@ -16,19 +16,20 @@ namespace BasketballSim
             twoPtRtg = rnd.Next(1, 10);
             threePtRtg = rnd.Next(1, 10);
             defRtg = rnd.Next(1, 10);
-            playerName = null;
+            playerName = NameGenerator.Instance.getRndPlayerName();
         }
 
-        public int getTwoPtRtg(){
-            return twoPtRtg;
-        }
+        public int getTwoPtRtg() => twoPtRtg;
 
-        public int getThreePtRtg(){
-            return threePtRtg;
-        }
+        public int getThreePtRtg() => threePtRtg;
 
-        public int getDefRtg(){
-            return defRtg;
+        public int getDefRtg() => defRtg;
+
+        public string getName() => playerName;
+        public int getOVR(){
+            return ((twoPtRtg
+                + threePtRtg
+                + defRtg)/3);
         }
     }
 }
