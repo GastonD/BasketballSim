@@ -7,8 +7,9 @@ namespace BasketballSim
         static void Main(string[] args)
         {
             Console.WriteLine("Bienvenido a Basketball Simulator!");
-            var t1 = new Team("Team One");
-            var t2 = new Team("Team Two");
+            
+            var t1 = new Team(NameGenerator.Instance.getRndTeamName());
+            var t2 = new Team(NameGenerator.Instance.getRndTeamName());
 
             Console.WriteLine("Hoy se enfrentan:");
             Console.WriteLine(t1.getName());

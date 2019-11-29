@@ -16,6 +16,7 @@ namespace BasketballSim
             twoPtRtg = rnd.Next(1, 10);
             threePtRtg = rnd.Next(1, 10);
             defRtg = rnd.Next(1, 10);
+            playerName = null;
         }
 
         public int getTwoPtRtg(){
