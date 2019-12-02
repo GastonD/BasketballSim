@@ -68,6 +68,7 @@ namespace BasketballSim
                     g = new Game(teams[firstTeam],teams[secondTeam],day+1);
                     leagueGames.Add(g);
                     gameSchedule.Add(g, day+1);
+                    Console.WriteLine("");
                 }
             }
         }
