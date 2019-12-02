@@ -11,7 +11,10 @@ namespace BasketballSim
         private readonly int threePtRtg;
         private readonly int defRtg;
 
+        private int totalPoints;
+
         public Player(){
+            totalPoints = 0;
             Random rnd = new Random();
             twoPtRtg = rnd.Next(1, 10);
             threePtRtg = rnd.Next(1, 10);

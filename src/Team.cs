@@ -8,8 +8,15 @@ namespace BasketballSim
         private string name;
         public List<Player> players = new List<Player>();
 
+        private int teamWins;
+
+        private int teamLosses;
+
+
         public Team(string givenName){
             name = givenName;
+            teamWins = 0;
+            teamLosses = 0;
 
             for (int i = 0; i < 5; i++){
                 players.Add(new Player());
@@ -41,5 +48,22 @@ namespace BasketballSim
                 Console.WriteLine(p.getName() + " " + p.getOVR());
             }
         }
+
+        public void addWin(){
+            teamWins +=1;
+        }
+
+        public void addLoss(){
+            teamLosses +=1;
+        }
+
+        public int getWins(){
+            return teamWins;
+        }
+
+        public int getLosses(){
+            return teamLosses;
+        }
+
     }
 }

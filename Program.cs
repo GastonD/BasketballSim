@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BasketballSim
 {
@@ -7,8 +8,26 @@ namespace BasketballSim
         static void Main(string[] args)
         {
             Console.WriteLine("Bienvenido a Basketball Simulator!");
+            createTeams();
+            //MyLeague.Instance.listTeams();
+            MyLeague.Instance.setUpSeason();
+
+            int daysPlayed = 0;
+
+            for (int i = 0; i<MyLeague.Instance.getLeagueDays();i++){
+                Console.WriteLine("Día {0}",i+1);
+                playDay(i+1);
+                daysPlayed +=1;
+            }
+
+            LeagueSimulation.Instance.showStats(daysPlayed);
+
+            Console.WriteLine("");
+            Console.WriteLine("");
+
+            MyLeague.Instance.displayTeamRecords();
             
-            var t1 = new Team(NameGenerator.Instance.getRndTeamName());
+            /*var t1 = new Team(NameGenerator.Instance.getRndTeamName());
             var t2 = new Team(NameGenerator.Instance.getRndTeamName());
 
             Console.WriteLine("Hoy se enfrentan:");
@@ -25,8 +44,27 @@ namespace BasketballSim
             }
             Console.WriteLine("Se jugaron: "+totalGamesPlayed.ToString() + " partidos.");
             LeagueSimulation.Instance.showStats(totalGamesPlayed);
-            //partido.playGame();
+            //partido.playGame();*/
+
+
             
+        }
+
+        public static void createTeams(){
+            for(int i = 0; i < NameGenerator.Instance.getTeamArrayLength();i++){
+                Team t = new Team(NameGenerator.Instance.getTeamNameByIndex(i));
+                MyLeague.Instance.addTeamToLeague(t);
+            }
+            //Console.WriteLine("Participan de la liga: "MyLeague.Instance.)
+        }
+
+        public static void playDay(int Day){
+            List<Game> gamesToPlay = new List<Game>();
+            gamesToPlay = MyLeague.Instance.gamesInDay(Day);
+
+            foreach(Game g in gamesToPlay){
+                g.playGame();
+            }
         }
 
 

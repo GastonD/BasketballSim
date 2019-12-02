@@ -11,26 +11,34 @@ namespace BasketballSim
 
         public int teamOneScore;
         public int teamTwoScore;
-        public Dictionary<string, int> teamOneBoxScore = new Dictionary<string, int>();
-        public Dictionary<string, int> teamTwoBoxScore = new Dictionary<string, int>();
 
-        public Game(Team t1, Team t2){
+        public int scheduledDay;
+
+        public Dictionary<Player, int> teamOneBoxScore = null;
+        public Dictionary<Player, int> teamTwoBoxScore = null;
+
+        public Game(Team t1, Team t2, int day){
             teamOne = t1;
             teamTwo = t2;
+            scheduledDay = day;
 
             teamOneScore = 0;
             teamTwoScore = 0;
 
+            teamOneBoxScore = new Dictionary<Player, int>();
+            
             foreach(Player p in teamOne.players){
-                teamOneBoxScore.Add(p.getName(),0);
+                teamOneBoxScore.Add(p,0);
             }
 
+            teamTwoBoxScore = new Dictionary<Player, int>();
+            
             foreach(Player p in teamTwo.players){
-                teamTwoBoxScore.Add(p.getName(),0);
+                teamTwoBoxScore.Add(p,0);
             }
         }
 
-        public static int possession(Team atk, Team def, Dictionary<string, int> atkBxs){
+        public static int possession(Team atk, Team def, Dictionary<Player, int> atkBxs){
             Random rnd = new Random();
             
             int index = 0;
@@ -42,7 +50,7 @@ namespace BasketballSim
             Player p2 = def.players[index];
             
             if(p1.getTwoPtRtg() > p2.getDefRtg()){
-                atkBxs[p1.getName()] += 2;
+                atkBxs[p1] += 2;
                 return 2;
             }
             else return 0;
@@ -58,21 +66,30 @@ namespace BasketballSim
 
             Console.WriteLine("");
             Console.WriteLine("RESULTADO:");
-            Console.WriteLine(teamOne.getName() + ": " + teamOneScore);
+            Console.WriteLine(teamOne.getName() + ": " + teamOneScore + " - " + teamTwo.getName() + ": "+teamTwoScore);
+            /*Console.WriteLine(teamOne.getName() + ": " + teamOneScore);
             Console.WriteLine("PLANILLA");
             printBoxScore(teamOneBoxScore);
             Console.WriteLine("");
             Console.WriteLine(teamTwo.getName() + ": " + teamTwoScore);
             Console.WriteLine("PLANILLA");
-            printBoxScore(teamTwoBoxScore);
+            printBoxScore(teamTwoBoxScore);*/
+
+            if (teamOneScore > teamTwoScore){
+                teamOne.addWin();
+                teamTwo.addLoss();
+            }else{
+                teamTwo.addWin();
+                teamOne.addLoss();
+            }
             
             LeagueSimulation.Instance.addPoints(teamOneBoxScore);
             LeagueSimulation.Instance.addPoints(teamTwoBoxScore);
         }
 
-        private void printBoxScore(Dictionary<string, int> boxScore){
-            foreach (KeyValuePair<string, int> kvp in boxScore)
-                Console.WriteLine(kvp.Key +" "+ kvp.Value.ToString());
+        private void printBoxScore(Dictionary<Player, int> boxScore){
+            foreach (KeyValuePair<Player, int> kvp in boxScore)
+                Console.WriteLine(kvp.Key.getName() +" "+ kvp.Value.ToString());
         }
 
     }

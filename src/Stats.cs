@@ -5,9 +5,9 @@ namespace BasketballSim
 {
     public class Stats
     {
-        private Dictionary<String, int> playerPoints = null;
-        private Dictionary<String, int> teamWins = null;
-        private Dictionary<String, int> teamLosses = null;
+        private Dictionary<Player, int> playerPoints = null;
+        private Dictionary<Team, int> teamWins = null;
+        private Dictionary<Team, int> teamLosses = null;
         public Stats(){
             //<>
         }
