@@ -34,7 +34,19 @@ namespace BasketballSim
         }
 
         private void setUpSeason(){
-            
+            /*if (leagueTeams.Count % 2 != 0)
+            {
+                leagueTeams.Add("Bye");
+            }*/
+
+            int numDays = (leagueTeams.Count - 1);
+            int halfSize = leagueTeams.Count / 2;
+
+            foreach(Team t in leagueTeams){
+                
+                Game g = new Game(t, t);
+
+            }
         }
 
         public void addTeamToLeague(Team t){
@@ -44,6 +56,18 @@ namespace BasketballSim
         public Team GetTeam(string name){
             int i = leagueTeams.FindIndex(x => x.getName().Equals(name));
             return leagueTeams[i];
+        }
+
+        public void nextDay(){
+            Console.WriteLine("Día "+currentDay.ToString());
+            Console.WriteLine("Hay" +gameSchedule.Count.ToString()+ " partidos hoy");
+            Console.WriteLine("===================");
+
+            foreach(KeyValuePair<int, Game> kvp in gameSchedule){
+                kvp.Value.playGame();
+            }
+
+            currentDay += 1;
         }
 
     }
