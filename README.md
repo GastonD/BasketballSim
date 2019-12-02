@@ -15,18 +15,18 @@ GIT Commands: https://dev.to/dhruv/essential-git-commands-every-developer-should
 # Changelog
 
 #### 01/12
-: Empieza la generación de la liga.
-: Agregue el Simulador.
-: Hay más nombres para evitar duplicados.
-: 
+- Empieza la generación de la liga.
+- Agregue el Simulador.
+- Hay más nombres para evitar duplicados.
+- 
 
 #### 29/11 - 12:30
-: Se agregó la generación de nombres por nombre y apellido.
-: Se agregó el diccionario del BoxScore para los equipos.
-: Se modificó el output de cada partido.
-: Se modificó el readme.
+- Se agregó la generación de nombres por nombre y apellido.
+- Se agregó el diccionario del BoxScore para los equipos.
+- Se modificó el output de cada partido.
+- Se modificó el readme.
 
 ##### Known Bugs AND TO-DOs
-: Si se crean jugadores con el mismo nombre dentro de un equipo, da un error.
-: Hay que buscar una forma más eficiente de manejar datos que los diccionarios
+- Si se crean jugadores con el mismo nombre dentro de un equipo, da un error.
+- Hay que buscar una forma más eficiente de manejar datos que los diccionarios
 
