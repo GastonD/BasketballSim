@@ -1,4 +1,4 @@
-@startuml
+@startuml include
 !include Game.puml
 !include MyLeague.puml
 !include NameGenerator.puml

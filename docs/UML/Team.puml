@@ -1,4 +1,4 @@
-@startuml
+@startuml Team
 class Team {
     - name : string
     + players : List<Player>

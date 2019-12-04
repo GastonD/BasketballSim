@@ -1,4 +1,4 @@
-@startuml
+@startuml PlayerMoveAndRating
 class PlayerMoveAndRating {
     move : string
     rating : int

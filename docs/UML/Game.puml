@@ -1,4 +1,4 @@
-@startuml
+@startuml Game
 class Game {
     + teamOne : Team
     + teamTwo : Team

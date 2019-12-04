@@ -1,4 +1,4 @@
-@startuml
+@startuml NameGenerator
 class NameGenerator <<sealed>> {
     - firstNames : String[] = null
     - lastNames : String[] = null

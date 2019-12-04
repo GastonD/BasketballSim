@@ -1,4 +1,4 @@
-@startuml
+@startuml MyLeague
 class MyLeague <<sealed>> {
     - leagueGames : List<Game> = null
     - leagueYear : int = 0

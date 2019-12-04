@@ -1,4 +1,4 @@
-@startuml
+@startuml PlayerType
 class PlayerType <<sealed>> {
     - types : List<string> = null
     + PlayerType()
