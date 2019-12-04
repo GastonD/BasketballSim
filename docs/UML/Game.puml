@@ -1,0 +1,15 @@
+@startuml
+class Game {
+    + teamOne : Team
+    + teamTwo : Team
+    + teamOneScore : int
+    + teamTwoScore : int
+    + scheduledDay : int
+    + teamOneBoxScore : Dictionary<Player, PlayerStats> = null
+    + teamTwoBoxScore : Dictionary<Player, PlayerStats> = null
+    + Game(t1:Team, t2:Team, day:int)
+    + {static} possession(atk:Team, def:Team, atkBxs:Dictionary<Player, PlayerStats>, passBonus:int) : int
+    + playGame() : void
+    - printBoxScore(boxScore:Dictionary<Player, int>) : void
+}
+@enduml

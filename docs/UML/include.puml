@@ -1,0 +1,11 @@
+@startuml
+!include Game.puml
+!include MyLeague.puml
+!include NameGenerator.puml
+!include Player.puml
+!include PlayerMoveAndRating.puml
+!include PlayerStats.puml
+!include PlayerTendency.puml
+!include PlayerType.puml
+!include Team.puml
+@enduml

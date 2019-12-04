@@ -1,0 +1,19 @@
+@startuml
+class PlayerTendency {
+    + shootInsideTendencyMax : int
+    + shootInsideTendencyMin : int
+    + shootThreeTendencyMax : int
+    + shootThreeTendencyMin : int
+    + passBallTendencyMax : int
+    + passBallTendencyMin : int
+    + stealTendencyMax : int
+    + stealTendencyMin : int
+    + blockTendencyMax : int
+    + blockTendencyMin : int
+    + foulTendencyMax : int
+    + foulTendencyMin : int
+    + PlayerTendency(type:string)
+    + getOffensiveAction() : string
+    + getDefensiveAction() : string
+}
+@enduml

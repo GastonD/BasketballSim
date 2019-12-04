@@ -1,0 +1,26 @@
+@startuml
+class MyLeague <<sealed>> {
+    - leagueGames : List<Game> = null
+    - leagueYear : int = 0
+    - leagueTeams : List<Team> = null
+    - numDays : int
+    - currentDay : int = 0
+    - gameSchedule : Dictionary<Game, int> = null
+    - leaguePlayers : Dictionary<Player, int> = null
+    MyLeague()
+    - {static} <<readonly>> padlock : object
+    - {static} instance : MyLeague = null
+    + {static} Instance : MyLeague <<get>>
+    + setUpSeason() : void
+    + gamesInDay(Day:int) : List<Game>
+    + getLeagueDays() : int
+    + addTeamToLeague(t:Team) : void
+    + listTeams() : void
+    + GetTeam(name:string) : Team
+    + nextDay() : void
+    + displayTeamRecords() : void
+    + addPoints(boxScore:Dictionary<Player, PlayerStats>) : void
+    + showStats(totalGamesPlayed:int) : void
+    + getTopScorer() : void
+}
+@enduml

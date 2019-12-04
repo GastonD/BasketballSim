@@ -137,8 +137,8 @@ namespace BasketballSim
             teamOne.addPointsTotal(teamOneScore, teamTwoScore);
             teamTwo.addPointsTotal(teamTwoScore, teamOneScore);
             
-            LeagueSimulation.Instance.addPoints(teamOneBoxScore);
-            LeagueSimulation.Instance.addPoints(teamTwoBoxScore);
+            MyLeague.Instance.addPoints(teamOneBoxScore);
+            MyLeague.Instance.addPoints(teamTwoBoxScore);
         }
 
         private void printBoxScore(Dictionary<Player, int> boxScore){

@@ -22,13 +22,13 @@ namespace BasketballSim
                 daysPlayed +=1;
             }
 
-            LeagueSimulation.Instance.showStats(daysPlayed);
+            MyLeague.Instance.showStats(daysPlayed);
 
             Console.WriteLine("");
             Console.WriteLine("");
 
             MyLeague.Instance.displayTeamRecords();
-            LeagueSimulation.Instance.getTopScorer();
+            MyLeague.Instance.getTopScorer();
             /*var t1 = new Team(NameGenerator.Instance.getRndTeamName());
             var t2 = new Team(NameGenerator.Instance.getRndTeamName());
 
