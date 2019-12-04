@@ -108,26 +108,6 @@ namespace BasketballSim
             return score;
         }
             
-            
-        public static int oldPossession(Team atk, Team def, Dictionary<Player, int> atkBxs){
-            Random rnd = new Random();
-            
-            int index = 0;
-
-            index = rnd.Next(atk.players.Count);
-            Player p1 = atk.players[index];
-
-            index = rnd.Next(def.players.Count);
-            Player p2 = def.players[index];
-            
-            if(p1.getTwoPtRtg() > p2.getDefRtg()){
-                atkBxs[p1] += 2;
-                return 2;
-            }
-            else return 0;
-            
-        }
-
         public void playGame(){
 
             for (int i = 0; i < 100; i++){

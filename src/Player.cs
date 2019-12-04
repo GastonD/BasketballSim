@@ -7,15 +7,14 @@ namespace BasketballSim
     public class Player
     {
         private readonly string playerName;
-        private readonly int twoPtRtg;
-        private readonly int threePtRtg;
-        private readonly int defRtg;
+
         //Ofensivas
         private readonly int insideShooting;
         private readonly int perimeterShooting;
         private readonly int threePointShooting;
         private readonly int passing;
         private readonly int freeThrow;
+        private readonly int handling;
 
         //Defensiva
         private readonly int onBallDefense;
@@ -30,8 +29,12 @@ namespace BasketballSim
         private string playerType;
         private PlayerTendency playerTendency = null;
 
+        private PlayerStats stats = null;
+
         public Player(){
             totalPoints = 0;
+            stats = new PlayerStats();
+
             Random rnd = new Random();
 
             playerType = PlayerType.Instance.getRandomPlayerType();
@@ -97,12 +100,6 @@ namespace BasketballSim
             playerName = NameGenerator.Instance.getRndPlayerName();
         }
 
-        public int getTwoPtRtg() => twoPtRtg;
-
-        public int getThreePtRtg() => threePtRtg;
-
-        public int getDefRtg() => defRtg;
-
         public string getName() => playerName;
         public int getOVR(){
             //TODO REFACTOR para calcular un OVR de un Jugador
@@ -133,6 +130,14 @@ namespace BasketballSim
 
         public int getTotalPoints(){
             return totalPoints;
+        }
+
+        public void addPoints(int p){
+            totalPoints += p;
+        }
+
+        public void addAssist(int a){
+            stats.assists += a;
         }
     
     }

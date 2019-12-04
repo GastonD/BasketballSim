@@ -35,30 +35,17 @@ namespace BasketballSim
         }
 
         public int getOffRtg(){
-            /*int OffRtg = 0;
-            foreach(Player p in players){
-                OffRtg = OffRtg + (p.getTwoPtRtg() + p.getThreePtRtg());
-            }
-            return OffRtg;*/
             // DEPRECATED TODO NEW
             return 50;
         }
 
         public int getDefRtg(){
-            /*int DefRtg = 0;
-            foreach(Player p in players){
-                DefRtg = DefRtg + p.getDefRtg();
-            }
-            return DefRtg;*/
             // DEPRECATED TODO NEW
             return 50;
         }
 
         public void showRoster(){
             // DEPRECATED TODO NEW
-            /*foreach(Player p in players){
-                Console.WriteLine(p.getName() + " " + p.getOVR());
-            }*/
         }
 
         public void addWin(){
