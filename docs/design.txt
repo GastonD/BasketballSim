@@ -1,0 +1,28 @@
+Class Player{
+    perimeter_shooting;
+    interior_shooting;
+    3pt_shooting;
+    
+    zone_defense;
+    mtm_defense;
+    zone_offense;
+    mtm_offense;
+
+}
+
+Class Team{
+    name;
+    list players;
+
+    ingame_defense_type;
+
+}
+
+Class Game{
+    list Teams??;
+    home_team? / away_team?
+    time?;
+    scoreboard?
+
+    court;
+}

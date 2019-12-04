@@ -1,0 +1,11 @@
+D:\Development\BasketballSim\bin\Debug\netcoreapp3.0\BasketballSim.exe
+D:\Development\BasketballSim\bin\Debug\netcoreapp3.0\BasketballSim.deps.json
+D:\Development\BasketballSim\bin\Debug\netcoreapp3.0\BasketballSim.runtimeconfig.json
+D:\Development\BasketballSim\bin\Debug\netcoreapp3.0\BasketballSim.runtimeconfig.dev.json
+D:\Development\BasketballSim\bin\Debug\netcoreapp3.0\BasketballSim.dll
+D:\Development\BasketballSim\bin\Debug\netcoreapp3.0\BasketballSim.pdb
+D:\Development\BasketballSim\obj\Debug\netcoreapp3.0\BasketballSim.csprojAssemblyReference.cache
+D:\Development\BasketballSim\obj\Debug\netcoreapp3.0\BasketballSim.AssemblyInfoInputs.cache
+D:\Development\BasketballSim\obj\Debug\netcoreapp3.0\BasketballSim.AssemblyInfo.cs
+D:\Development\BasketballSim\obj\Debug\netcoreapp3.0\BasketballSim.dll
+D:\Development\BasketballSim\obj\Debug\netcoreapp3.0\BasketballSim.pdb
