@@ -14,6 +14,8 @@ namespace BasketballSim
 
             int daysPlayed = 0;
 
+            //Console.ReadKey();
+
             for (int i = 0; i<MyLeague.Instance.getLeagueDays();i++){
                 Console.WriteLine("Día {0}",i+1);
                 playDay(i+1);
@@ -26,7 +28,7 @@ namespace BasketballSim
             Console.WriteLine("");
 
             MyLeague.Instance.displayTeamRecords();
-            
+            LeagueSimulation.Instance.getTopScorer();
             /*var t1 = new Team(NameGenerator.Instance.getRndTeamName());
             var t2 = new Team(NameGenerator.Instance.getRndTeamName());
 
@@ -64,6 +66,7 @@ namespace BasketballSim
 
             foreach(Game g in gamesToPlay){
                 g.playGame();
+                //Console.ReadKey(); 
             }
         }
 

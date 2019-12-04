@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BasketballSim
 {
@@ -23,12 +24,13 @@ namespace BasketballSim
             }
         }
 
-        public void addPoints(Dictionary<Player, int> boxScore){
-            foreach (KeyValuePair<Player, int> kvp in boxScore){
+        public void addPoints(Dictionary<Player, PlayerStats> boxScore){
+            foreach (KeyValuePair<Player, PlayerStats> kvp in boxScore){
                 if(leaguePlayers.ContainsKey(kvp.Key)){
-                    leaguePlayers[kvp.Key] += kvp.Value;
+                    leaguePlayers[kvp.Key] += kvp.Value.points;
+                    //leaguePlayers[kvp.Key] += kvp.Value;
                 }else{
-                    leaguePlayers.Add(kvp.Key,kvp.Value);
+                    leaguePlayers.Add(kvp.Key,kvp.Value.points);
                 }
             }
         }
@@ -41,6 +43,12 @@ namespace BasketballSim
             }
                 
         }
+
+        public void getTopScorer(){
+            Player topScorer = leaguePlayers.Aggregate((l, r) => l.Value > r.Value ? l : r).Key;
+            Console.WriteLine("{0} is the League's Top Scorer with a total of {1} points and XX PPG", topScorer.getName(),leaguePlayers[topScorer]);
+        }
+
 
     }
 }

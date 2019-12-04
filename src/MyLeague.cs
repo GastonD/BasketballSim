@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BasketballSim
 {
@@ -52,10 +53,13 @@ namespace BasketballSim
             for (int day = 0; day < numDays; day++)
             {
                 Console.WriteLine("Day {0}", (day + 1));
+                Console.WriteLine("");
 
                 int teamIdx = day % teamsSize;
 
-                Console.WriteLine("{0} vs {1}", teams[teamIdx].getName(), leagueTeams[0].getName());
+                Console.WriteLine("    {0} vs {1}", teams[teamIdx].getName(), leagueTeams[0].getName());
+                Console.WriteLine("");
+
                 Game g = new Game(teams[teamIdx],leagueTeams[0],day+1);
                 leagueGames.Add(g);
                 gameSchedule.Add(g,day+1);
@@ -64,7 +68,7 @@ namespace BasketballSim
                 {               
                     int firstTeam = (day + idx) % teamsSize;
                     int secondTeam = (day  + teamsSize - idx) % teamsSize;
-                    Console.WriteLine("{0} vs {1}", teams[firstTeam].getName(), teams[secondTeam].getName());
+                    Console.WriteLine("    {0} vs {1}", teams[firstTeam].getName(), teams[secondTeam].getName());
                     g = new Game(teams[firstTeam],teams[secondTeam],day+1);
                     leagueGames.Add(g);
                     gameSchedule.Add(g, day+1);
@@ -116,10 +120,12 @@ namespace BasketballSim
         }
 
         public void displayTeamRecords(){
-            foreach(Team t in leagueTeams){
+            List<Team> SortedList = leagueTeams.OrderByDescending(o=>o.getWins()).ToList();
+            foreach(Team t in SortedList){
                 Console.WriteLine(t.getName()+": "+t.getWins().ToString()+"-"+t.getLosses().ToString());
             }
         }
+
 
     }
 }

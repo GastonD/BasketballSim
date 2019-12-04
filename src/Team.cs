@@ -7,14 +7,16 @@ namespace BasketballSim
     {
         private string name;
         public List<Player> players = new List<Player>();
-
         private int teamWins;
-
         private int teamLosses;
+        private int pointsForSeason;
+        private int pointsAgainstSeason;
 
 
         public Team(string givenName){
             name = givenName;
+            pointsForSeason = 0;
+            pointsAgainstSeason = 0;
             teamWins = 0;
             teamLosses = 0;
 
@@ -23,30 +25,40 @@ namespace BasketballSim
             }
         }
 
+        public void addPointsTotal(int ptsFor, int ptsAgainst){
+            pointsForSeason += ptsFor;
+            pointsAgainstSeason += ptsAgainst;
+        }
+
         public string getName(){
             return name;
         }
 
         public int getOffRtg(){
-            int OffRtg = 0;
+            /*int OffRtg = 0;
             foreach(Player p in players){
                 OffRtg = OffRtg + (p.getTwoPtRtg() + p.getThreePtRtg());
             }
-            return OffRtg;
+            return OffRtg;*/
+            // DEPRECATED TODO NEW
+            return 50;
         }
 
         public int getDefRtg(){
-            int DefRtg = 0;
+            /*int DefRtg = 0;
             foreach(Player p in players){
                 DefRtg = DefRtg + p.getDefRtg();
             }
-            return DefRtg;
+            return DefRtg;*/
+            // DEPRECATED TODO NEW
+            return 50;
         }
 
         public void showRoster(){
-            foreach(Player p in players){
+            // DEPRECATED TODO NEW
+            /*foreach(Player p in players){
                 Console.WriteLine(p.getName() + " " + p.getOVR());
-            }
+            }*/
         }
 
         public void addWin(){

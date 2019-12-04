@@ -10,7 +10,7 @@ namespace BasketballSim
             types = new List<string>();
 
             types.Add("Shooter");
-            types.Add("PostPlayer");
+            //types.Add("PostPlayer");
             types.Add("Slasher");
             types.Add("Defender");
         }
