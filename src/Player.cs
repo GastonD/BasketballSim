@@ -8,6 +8,9 @@ namespace BasketballSim
     {
         private readonly string playerName;
 
+        private readonly string firstName;
+        private readonly string lastName;
+
         //Ofensivas
         private readonly int insideShooting;
         private readonly int perimeterShooting;
@@ -92,12 +95,11 @@ namespace BasketballSim
                 
             }
 
-            //OLD CODE
-            /*twoPtRtg = rnd.Next(1, 10);
-            threePtRtg = rnd.Next(1, 10);
-            defRtg = rnd.Next(1, 10);*/
             playerTendency = new PlayerTendency(playerType);
-            playerName = NameGenerator.Instance.getRndPlayerName();
+            firstName = NameGenerator.Instance.getRndFirstName();
+            lastName = NameGenerator.Instance.getRndLastName();
+            playerName = firstName + " " + lastName;
+            
         }
 
         public string getName() => playerName;

@@ -13,6 +13,10 @@ Basketball Simulator C#
 ## Useful Info or Tutorials
 
 GIT Commands: <https://dev.to/dhruv/essential-git-commands-every-developer-should-know-2fl>
+SQLite Net.Core: <https://developersoapbox.com/connecting-to-a-sqlite-database-using-net-core/>
+Unity3D SQL: <https://hackernoon.com/implementing-backend-for-unity3d-games-using-php-6f043b5b7db7>
+Unity3D SQLite: <https://medium.com/@rizasif92/sqlite-and-unity-how-to-do-it-right-31991712190>
+API CRUD: <http://vbpuntonet.blogspot.com/2018/06/api-rest-creacion-de-un-api-rest-crud.html>
 
 ## Changelog
 

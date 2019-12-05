@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Data.Sqlite;
 
 namespace BasketballSim
 {
@@ -8,6 +9,10 @@ namespace BasketballSim
         static void Main(string[] args)
         {
             Console.WriteLine("Bienvenido a Basketball Simulator!");
+            DataManager.Instance.insertTeams();
+            DataManager.Instance.getTeams();
+            Console.ReadKey();
+
             createTeams();
             //MyLeague.Instance.listTeams();
             MyLeague.Instance.setUpSeason();
@@ -70,8 +75,9 @@ namespace BasketballSim
             }
         }
 
-
-
+        public static void initDB(){
+            
+        }
 
     }
 }
