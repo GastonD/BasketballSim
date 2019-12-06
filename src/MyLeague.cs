@@ -40,6 +40,7 @@ namespace BasketballSim
             {
                 leagueTeams.Add("Bye");
             }*/
+            leagueYear++;
 
             List<Team> teams = new List<Team>();
             teams.AddRange(leagueTeams);
@@ -123,6 +124,7 @@ namespace BasketballSim
             currentDay += 1;
         }
 
+        public void nextYear() => leagueYear++;
         public void displayTeamRecords(){
             List<Team> SortedList = leagueTeams.OrderByDescending(o=>o.getWins()).ToList();
             foreach(Team t in SortedList){

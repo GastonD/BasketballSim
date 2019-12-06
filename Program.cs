@@ -43,6 +43,7 @@ namespace BasketballSim
 
             MyLeague.Instance.displayTeamRecords();
             MyLeague.Instance.getTopScorer();
+            MyLeague.Instance.nextYear();
             /*var t1 = new Team(NameGenerator.Instance.getRndTeamName());
             var t2 = new Team(NameGenerator.Instance.getRndTeamName());
 
