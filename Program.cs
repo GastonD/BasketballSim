@@ -18,6 +18,7 @@ namespace BasketballSim
             //createPlayersForLeague();
 
             DataManager.Instance.createTeams();
+            DataManager.Instance.populateTeams();
 
             Console.ReadKey();
 
@@ -65,7 +66,7 @@ namespace BasketballSim
             
         }
 
-        public static void createPlayersForLeague(){
+        /*public static void createPlayersForLeague(){
             for(int i = 0; i < 10; i ++){
                 for(int j = 0; j < 5; j ++){
 
@@ -107,7 +108,7 @@ namespace BasketballSim
 
                 }
             }
-        }
+        }*/
 
         public static void createTeams(){
             for(int i = 0; i < NameGenerator.Instance.getTeamArrayLength();i++){

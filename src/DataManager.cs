@@ -69,6 +69,25 @@ namespace BasketballSim
             }
         }
 
+        public void populateTeams(){
+            using(var connection = new SqliteConnection(connectionStringBuilder.ConnectionString))
+            {
+                connection.Open();
+
+                var selectCmd = connection.CreateCommand();
+                selectCmd.CommandText = "SELECT * FROM PLAYERS";
+
+                using (var reader = selectCmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Player p = new Player(reader);
+                        MyLeague.Instance.getTeamByID(reader.GetInt32(18)).addPlayer(p);
+                    }
+                }
+            }
+        }
+
 
         public void insertTeams(){
             using(var connection = new SqliteConnection(connectionStringBuilder.ConnectionString)){
@@ -99,7 +118,7 @@ namespace BasketballSim
             }
         }
 
-        public void populatePlayers(){
+        /*public void populatePlayers(){
             using(var connection = new SqliteConnection(connectionStringBuilder.ConnectionString)){
                 connection.Open();
 
@@ -155,8 +174,7 @@ namespace BasketballSim
                     transaction.Commit();
                 }
 
-            }
-        }
+            }*/
 
     }
 }

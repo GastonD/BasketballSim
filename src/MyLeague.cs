@@ -88,6 +88,10 @@ namespace BasketballSim
             return gamesScheduledInDay;
         } 
 
+        public Team getTeamByID(int id_param){
+            return leagueTeams.Find(o => o.ID == id_param);
+        }
+
         public int getLeagueDays(){
             return numDays;
         }

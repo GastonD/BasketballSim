@@ -11,7 +11,7 @@ namespace BasketballSim
         private int teamLosses;
         private int pointsForSeason;
         private int pointsAgainstSeason;
-        private int ID;
+        public int ID;
 
         public Team(string givenName){
             name = givenName;
@@ -20,9 +20,9 @@ namespace BasketballSim
             teamWins = 0;
             teamLosses = 0;
 
-            for (int i = 0; i < 5; i++){
+            /*for (int i = 0; i < 5; i++){
                 players.Add(new Player());
-            }
+            }*/
         }
 
         public void addPointsTotal(int ptsFor, int ptsAgainst){
@@ -70,6 +70,10 @@ namespace BasketballSim
 
         public int getLosses(){
             return teamLosses;
+        }
+
+        public void addPlayer(Player p){
+            players.Add(p);
         }
 
     }
