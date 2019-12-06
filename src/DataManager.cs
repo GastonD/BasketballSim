@@ -59,7 +59,7 @@ namespace BasketballSim
                 delTableCmd.ExecuteNonQuery();
 
                 var createTableCmd = connection.CreateCommand();
-                createTableCmd.CommandText = "CREATE TABLE TEAMS(ID int autonumeric primary key, name VARCHAR(50))";
+                createTableCmd.CommandText = "CREATE TABLE TEAMS(ID int autonumeric primary key, teamWins int, teamLosses int, ptsForSeason int, ptsAgainstSeason int, name VARCHAR(50))";
                 createTableCmd.ExecuteNonQuery();
 
                 //Seed some data:
@@ -75,6 +75,62 @@ namespace BasketballSim
 
                     transaction.Commit();
                 }
+            }
+        }
+
+        public void populatePlayers(){
+            using(var connection = new SqliteConnection(connectionStringBuilder.ConnectionString)){
+                connection.Open();
+
+                using (var transaction = connection.BeginTransaction())
+                {
+                    var insertCmd = connection.CreateCommand();
+
+                    for(int i = 0; i < 10; i ++){
+                        for(int j = 0; j < 5; j ++){
+
+                            Player p = new Player();
+
+                            string temp = p.firstName + ", ";
+                            temp += p.lastName + ", ";
+                            temp += "20, ";
+                            temp += "170, ";
+                            temp += p.insideShooting + ", ";
+                            temp += p.perimeterShooting + ", ";
+                            temp += p.threePointShooting + ", ";
+                            temp += p.passing + ", ";
+                            temp += p.freeThrow + ", ";
+                            temp += p.handling + ", ";
+                            temp += p.onBallDefense + ", ";
+                            temp += p.insideDefense + ", ";
+                            temp += p.stealing + ", ";
+                            temp += p.block + ", ";
+                            temp += p.offRebounding + ", ";
+                            temp += p.defRebounding + ", ";
+                            temp += p.totalPoints + ", ";
+                            int tempint = i+1;
+                            temp += tempint + ", ";
+                            temp += p.playerTendency.shootInsideTendencyMax + ", ";
+                            temp += p.playerTendency.shootInsideTendencyMin + ", ";
+                            temp += p.playerTendency.shootThreeTendencyMax + ", ";
+                            temp += p.playerTendency.shootThreeTendencyMin + ", ";
+                            temp += p.playerTendency.passBallTendencyMax + ", ";
+                            temp += p.playerTendency.passBallTendencyMin + ", ";
+                            temp += p.playerTendency.stealTendencyMax + ", ";
+                            temp += p.playerTendency.stealTendencyMin + ", ";
+                            temp += p.playerTendency.blockTendencyMax + ", ";
+                            temp += p.playerTendency.blockTendencyMin + ", ";
+                            temp += p.playerTendency.foulTendencyMax + ", ";
+                            temp += p.playerTendency.foulTendencyMin;
+
+                            insertCmd.CommandText = "INSERT INTO PLAYERS (FIRST_NAME, LAST_NAME, AGE, HEIGHT, insideShooting, perimeterShooting, threePointShooting, passing, freeThrow, handling, onBallDefense, insideDefense, stealing, block, offRebounding, defRebounding, totalPoints, TEAM, shootInsideTendencyMax, shootInsideTendencyMin, shootThreeTendencyMax, shootThreeTendencyMin, passBallTendencyMax, passBallTendencyMin, stealTendencyMax, stealTendencyMin, blockTendencyMax, blockTendencyMin, foulTendencyMax, foulTendencyMin) VALUES ('"+temp+"')";
+                            insertCmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    transaction.Commit();
+                }
+
             }
         }
 

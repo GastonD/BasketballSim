@@ -9,8 +9,12 @@ namespace BasketballSim
         static void Main(string[] args)
         {
             Console.WriteLine("Bienvenido a Basketball Simulator!");
-            DataManager.Instance.insertTeams();
+            Console.WriteLine("");
+
+            //DataManager.Instance.insertTeams();
             DataManager.Instance.getTeams();
+            DataManager.Instance.populatePlayers();
+
             Console.ReadKey();
 
             createTeams();

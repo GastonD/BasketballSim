@@ -1,25 +1,54 @@
 -- SQLite
-CREATE TABLE TEAMS (
-ID INT PRIMARY KEY NOT NULL,
-NAME varchar(255) NOT NULL);
+DROP TABLE TEAMS;
+--DROP TABLE favorite_beers;
 
-INSERT INTO TEAMS (ID, NAME) VALUES (1,"ATENEO");
-INSERT INTO TEAMS (ID, NAME) VALUES (2,"AGLO");
-INSERT INTO TEAMS (ID, NAME) VALUES (3,"THT");
-INSERT INTO TEAMS (ID, NAME) VALUES (4,"AMERIKA");
-INSERT INTO TEAMS (ID, NAME) VALUES (5,"PROYECTO BASQUET");
-INSERT INTO TEAMS (ID, NAME) VALUES (6,"SHOLEM");
-INSERT INTO TEAMS (ID, NAME) VALUES (7,"TRIGLAV");
-INSERT INTO TEAMS (ID, NAME) VALUES (8,"SAHORES");
-INSERT INTO TEAMS (ID, NAME) VALUES (9,"CABALLITO HEADS");
-INSERT INTO TEAMS (ID, NAME) VALUES (10,"BETAM");
+CREATE TABLE TEAMS(ID INTEGER PRIMARY KEY AUTOINCREMENT, 
+                    teamWins INTEGER, teamLosses INTEGER, ptsForSeason INTEGER, 
+                    ptsAgainstSeason INTEGER, name VARCHAR(50));
 
-SELECT * FROM TEAMS;
+INSERT INTO TEAMS (teamWins, teamLosses, ptsForSeason, ptsAgainstSeason, name) VALUES (0,0,0,0,"ATENEO");
+INSERT INTO TEAMS (teamWins, teamLosses, ptsForSeason, ptsAgainstSeason, name) VALUES (0,0,0,0,"AGLO");
+INSERT INTO TEAMS (teamWins, teamLosses, ptsForSeason, ptsAgainstSeason, name) VALUES (0,0,0,0,"THT");
+INSERT INTO TEAMS (teamWins, teamLosses, ptsForSeason, ptsAgainstSeason, name) VALUES (0,0,0,0,"AMERIKA");
+INSERT INTO TEAMS (teamWins, teamLosses, ptsForSeason, ptsAgainstSeason, name) VALUES (0,0,0,0,"PROYECTO BASQUET");
+INSERT INTO TEAMS (teamWins, teamLosses, ptsForSeason, ptsAgainstSeason, name) VALUES (0,0,0,0,"SHOLEM");
+INSERT INTO TEAMS (teamWins, teamLosses, ptsForSeason, ptsAgainstSeason, name) VALUES (0,0,0,0,"TRIGLAV");
+INSERT INTO TEAMS (teamWins, teamLosses, ptsForSeason, ptsAgainstSeason, name) VALUES (0,0,0,0,"SAHORES");
+INSERT INTO TEAMS (teamWins, teamLosses, ptsForSeason, ptsAgainstSeason, name) VALUES (0,0,0,0,"CABALLITO HEADS");
+INSERT INTO TEAMS (teamWins, teamLosses, ptsForSeason, ptsAgainstSeason, name) VALUES (0,0,0,0,"BETAM");
+
+--SELECT * FROM TEAMS;
 
 CREATE TABLE PLAYERS (
-ID INT PRIMARY KEY NOT NULL AUTOINCREMENT,
+ID INTEGER PRIMARY KEY AUTOINCREMENT,
 FIRST_NAME varchar(255) NOT NULL,
 LAST_NAME varchar(255) NOT NULL,
-AGE INT,
-HEIGHT INT);
-
+AGE INTEGER,
+HEIGHT INTEGER,
+insideShooting INTEGER,
+perimeterShooting INTEGER,
+threePointShooting INTEGER,
+passing INTEGER,
+freeThrow INTEGER,
+handling INTEGER,
+onBallDefense INTEGER,
+insideDefense INTEGER,
+stealing INTEGER,
+block INTEGER,
+offRebounding INTEGER,
+defRebounding INTEGER,
+totalPoints INTEGER,
+TEAM INTEGER,
+shootInsideTendencyMax INTEGER,
+shootInsideTendencyMin INTEGER,
+shootThreeTendencyMax INTEGER,
+shootThreeTendencyMin INTEGER,
+passBallTendencyMax INTEGER,
+passBallTendencyMin INTEGER,
+stealTendencyMax INTEGER,
+stealTendencyMin INTEGER,
+blockTendencyMax INTEGER,
+blockTendencyMin INTEGER,
+foulTendencyMax INTEGER,
+foulTendencyMin INTEGER,
+FOREIGN KEY(TEAM) REFERENCES TEAMS(ID));

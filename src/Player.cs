@@ -6,33 +6,33 @@ namespace BasketballSim
 
     public class Player
     {
-        private readonly string playerName;
+        public readonly string playerName;
 
-        private readonly string firstName;
-        private readonly string lastName;
+        public readonly string firstName;
+        public readonly string lastName;
 
         //Ofensivas
-        private readonly int insideShooting;
-        private readonly int perimeterShooting;
-        private readonly int threePointShooting;
-        private readonly int passing;
-        private readonly int freeThrow;
-        private readonly int handling;
+        public readonly int insideShooting;
+        public readonly int perimeterShooting;
+        public readonly int threePointShooting;
+        public readonly int passing;
+        public readonly int freeThrow;
+        public readonly int handling;
 
         //Defensiva
-        private readonly int onBallDefense;
-        private readonly int insideDefense;
-        private readonly int stealing;
-        private readonly int block;
+        public readonly int onBallDefense;
+        public readonly int insideDefense;
+        public readonly int stealing;
+        public readonly int block;
 
-        private readonly int offRebounding;
-        private readonly int defRebounding;
+        public readonly int offRebounding;
+        public readonly int defRebounding;
 
-        private int totalPoints;
-        private string playerType;
-        private PlayerTendency playerTendency = null;
+        public int totalPoints;
+        public string playerType;
+        public PlayerTendency playerTendency = null;
 
-        private PlayerStats stats = null;
+        public PlayerStats stats = null;
 
         public Player(){
             totalPoints = 0;
