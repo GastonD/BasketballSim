@@ -21,6 +21,11 @@ SQLite Docs: <https://www.tutorialspoint.com/sqlite/index.htm>
 
 ## Changelog
 
+### 06/12
+
+- Ahora levanta los jugadores y los equipos desde la DB
+- Falta hacer que suba la información
+
 ### 04/12
 
 - BoxScore actualizado
