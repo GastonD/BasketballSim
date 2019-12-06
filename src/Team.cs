@@ -11,7 +11,7 @@ namespace BasketballSim
         private int teamLosses;
         private int pointsForSeason;
         private int pointsAgainstSeason;
-
+        private int ID;
 
         public Team(string givenName){
             name = givenName;
@@ -28,6 +28,14 @@ namespace BasketballSim
         public void addPointsTotal(int ptsFor, int ptsAgainst){
             pointsForSeason += ptsFor;
             pointsAgainstSeason += ptsAgainst;
+        }
+
+        public void setValues(int id_param, int wins, int losses, int ptsFor, int ptsAgainst){
+            ID = id_param;
+            teamWins = wins;
+            teamLosses = losses;
+            pointsForSeason = ptsFor;
+            pointsAgainstSeason = ptsAgainst;
         }
 
         public string getName(){

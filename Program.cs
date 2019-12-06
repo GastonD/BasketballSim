@@ -12,12 +12,16 @@ namespace BasketballSim
             Console.WriteLine("");
 
             //DataManager.Instance.insertTeams();
-            DataManager.Instance.getTeams();
-            DataManager.Instance.populatePlayers();
+            //DataManager.Instance.getTeams();
+            //DataManager.Instance.populatePlayers();
+
+            //createPlayersForLeague();
+
+            DataManager.Instance.createTeams();
 
             Console.ReadKey();
 
-            createTeams();
+            //createTeams();
             //MyLeague.Instance.listTeams();
             MyLeague.Instance.setUpSeason();
 
@@ -59,6 +63,50 @@ namespace BasketballSim
 
 
             
+        }
+
+        public static void createPlayersForLeague(){
+            for(int i = 0; i < 10; i ++){
+                for(int j = 0; j < 5; j ++){
+
+                    Player p = new Player();
+
+                    string temp = p.firstName + ", ";
+                    temp += p.lastName + ", ";
+                    temp += "20, ";
+                    temp += "170, ";
+                    temp += p.insideShooting + ", ";
+                    temp += p.perimeterShooting + ", ";
+                    temp += p.threePointShooting + ", ";
+                    temp += p.passing + ", ";
+                    temp += p.freeThrow + ", ";
+                    temp += p.handling + ", ";
+                    temp += p.onBallDefense + ", ";
+                    temp += p.insideDefense + ", ";
+                    temp += p.stealing + ", ";
+                    temp += p.block + ", ";
+                    temp += p.offRebounding + ", ";
+                    temp += p.defRebounding + ", ";
+                    temp += p.totalPoints + ", ";
+                    int tempint = i+1;
+                    temp += tempint + ", ";
+                    temp += p.playerTendency.shootInsideTendencyMax + ", ";
+                    temp += p.playerTendency.shootInsideTendencyMin + ", ";
+                    temp += p.playerTendency.shootThreeTendencyMax + ", ";
+                    temp += p.playerTendency.shootThreeTendencyMin + ", ";
+                    temp += p.playerTendency.passBallTendencyMax + ", ";
+                    temp += p.playerTendency.passBallTendencyMin + ", ";
+                    temp += p.playerTendency.stealTendencyMax + ", ";
+                    temp += p.playerTendency.stealTendencyMin + ", ";
+                    temp += p.playerTendency.blockTendencyMax + ", ";
+                    temp += p.playerTendency.blockTendencyMin + ", ";
+                    temp += p.playerTendency.foulTendencyMax + ", ";
+                    temp += p.playerTendency.foulTendencyMin;
+
+                    Console.WriteLine(temp);
+
+                }
+            }
         }
 
         public static void createTeams(){

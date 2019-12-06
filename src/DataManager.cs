@@ -49,6 +49,27 @@ namespace BasketballSim
 
         }
 
+        public void createTeams(){
+            using(var connection = new SqliteConnection(connectionStringBuilder.ConnectionString))
+            {
+                connection.Open();
+
+                var selectCmd = connection.CreateCommand();
+                selectCmd.CommandText = "SELECT * FROM TEAMS";
+
+                using (var reader = selectCmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Team t = new Team(reader.GetString(5));
+                        t.setValues(reader.GetInt32(0),reader.GetInt32(1),reader.GetInt32(2),reader.GetInt32(3),reader.GetInt32(4));
+                        MyLeague.Instance.addTeamToLeague(t);
+                    }
+                }
+            }
+        }
+
+
         public void insertTeams(){
             using(var connection = new SqliteConnection(connectionStringBuilder.ConnectionString)){
                 
@@ -123,7 +144,10 @@ namespace BasketballSim
                             temp += p.playerTendency.foulTendencyMax + ", ";
                             temp += p.playerTendency.foulTendencyMin;
 
-                            insertCmd.CommandText = "INSERT INTO PLAYERS (FIRST_NAME, LAST_NAME, AGE, HEIGHT, insideShooting, perimeterShooting, threePointShooting, passing, freeThrow, handling, onBallDefense, insideDefense, stealing, block, offRebounding, defRebounding, totalPoints, TEAM, shootInsideTendencyMax, shootInsideTendencyMin, shootThreeTendencyMax, shootThreeTendencyMin, passBallTendencyMax, passBallTendencyMin, stealTendencyMax, stealTendencyMin, blockTendencyMax, blockTendencyMin, foulTendencyMax, foulTendencyMin) VALUES ('"+temp+"')";
+                            string query = "INSERT INTO PLAYERS (FIRST_NAME, LAST_NAME, AGE, HEIGHT, insideShooting, perimeterShooting, threePointShooting, passing, freeThrow, handling, onBallDefense, insideDefense, stealing, block, offRebounding, defRebounding, totalPoints, TEAM, shootInsideTendencyMax, shootInsideTendencyMin, shootThreeTendencyMax, shootThreeTendencyMin, passBallTendencyMax, passBallTendencyMin, stealTendencyMax, stealTendencyMin, blockTendencyMax, blockTendencyMin, foulTendencyMax, foulTendencyMin) VALUES ('{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26},{27},{28},{29},{30}')";
+                            insertCmd.CommandText = String.Format(query, p.firstName, p.lastName, 20, 170, p.insideShooting, p.perimeterShooting, p.threePointShooting, p.passing, p.freeThrow, p.handling, p.onBallDefense, p.insideDefense, p.stealing, p.block, p.offRebounding, p.defRebounding, p.totalPoints, tempint, p.playerTendency.shootInsideTendencyMax, p.playerTendency.shootInsideTendencyMin, p.playerTendency.shootThreeTendencyMax, p.playerTendency.shootThreeTendencyMin, p.playerTendency.passBallTendencyMax, p.playerTendency.passBallTendencyMin, p.playerTendency.stealTendencyMax, p.playerTendency.stealTendencyMin, p.playerTendency.blockTendencyMax, p.playerTendency.blockTendencyMin, p.playerTendency.foulTendencyMax, p.playerTendency.foulTendencyMin);
+
+                            //insertCmd.CommandText = "INSERT INTO PLAYERS (FIRST_NAME, LAST_NAME, AGE, HEIGHT, insideShooting, perimeterShooting, threePointShooting, passing, freeThrow, handling, onBallDefense, insideDefense, stealing, block, offRebounding, defRebounding, totalPoints, TEAM, shootInsideTendencyMax, shootInsideTendencyMin, shootThreeTendencyMax, shootThreeTendencyMin, passBallTendencyMax, passBallTendencyMin, stealTendencyMax, stealTendencyMin, blockTendencyMax, blockTendencyMin, foulTendencyMax, foulTendencyMin) VALUES ('"+temp+"')";
                             insertCmd.ExecuteNonQuery();
                         }
                     }
