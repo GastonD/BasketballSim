@@ -2,6 +2,31 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.0": {
+      "DotNetCore.CommonServiceLocator/1.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/DotNetCore.CommonServiceLocator.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/DotNetCore.CommonServiceLocator.dll": {}
+        }
+      },
+      "DotNetCore.Unity/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "DotNetCore.CommonServiceLocator": "1.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/DotNetCore.Unity.dll": {},
+          "lib/netstandard2.0/Microsoft.Practices.Unity.Configuration.dll": {},
+          "lib/netstandard2.0/Microsoft.Practices.Unity.RegistrationByConvention.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/DotNetCore.Unity.dll": {},
+          "lib/netstandard2.0/Microsoft.Practices.Unity.Configuration.dll": {},
+          "lib/netstandard2.0/Microsoft.Practices.Unity.RegistrationByConvention.dll": {}
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
         "type": "package",
         "compile": {
@@ -432,10 +457,48 @@
         "runtime": {
           "lib/netcoreapp3.0/System.Text.Json.dll": {}
         }
+      },
+      "Unity3D/1.2.0": {
+        "type": "package",
+        "build": {
+          "build/Unity3D.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Unity3D.props": {}
+        }
       }
     }
   },
   "libraries": {
+    "DotNetCore.CommonServiceLocator/1.5.0": {
+      "sha512": "47E8RM9s3mcyRjqdeB2GGXDrcmjnKFfJEZaGpjaETrb2euk16EL3iBYyUAYgLoF6juScU0yOhxE7+gNXvnqC4w==",
+      "type": "package",
+      "path": "dotnetcore.commonservicelocator/1.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dotnetcore.commonservicelocator.1.5.0.nupkg.sha512",
+        "dotnetcore.commonservicelocator.nuspec",
+        "lib/netstandard2.0/DotNetCore.CommonServiceLocator.dll"
+      ]
+    },
+    "DotNetCore.Unity/4.0.0": {
+      "sha512": "XY6XRLkuQamsE7zT4T5N7Ck/zuCfr+I1Mhfb9ZOhXLV2KPYY7goR0Ukdxdva/P4/HNFrvrb+GB3OQikBieypFw==",
+      "type": "package",
+      "path": "dotnetcore.unity/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dotnetcore.unity.4.0.0.nupkg.sha512",
+        "dotnetcore.unity.nuspec",
+        "lib/netstandard2.0/DotNetCore.Unity.dll",
+        "lib/netstandard2.0/Microsoft.Practices.Unity.Configuration.dll",
+        "lib/netstandard2.0/Microsoft.Practices.Unity.Configuration.xml",
+        "lib/netstandard2.0/Microsoft.Practices.Unity.RegistrationByConvention.dll",
+        "lib/netstandard2.0/Microsoft.Practices.Unity.RegistrationByConvention.xml",
+        "lib/netstandard2.0/Microsoft.Practices.Unity.xml"
+      ]
+    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
       "sha512": "1Am6l4Vpn3/K32daEqZI+FFr96OlZkgwK2LcT3pZ2zWubR5zTPW3/FkO1Rat9kb7oQOa4rxgl9LJHc5tspCWfg==",
       "type": "package",
@@ -1096,11 +1159,27 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Unity3D/1.2.0": {
+      "sha512": "dBq98R6/rSQPDRr8oU5DykYV+K4lBdCjqoQWfr7TpWJhBNW2d8rUtEYV7F05nNeOjU/xxv3IY4Pby/jcyDJGNg==",
+      "type": "package",
+      "path": "unity3d/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Unity3D.props",
+        "buildMultiTargeting/Unity3D.props",
+        "readme.txt",
+        "unity3d.1.2.0.nupkg.sha512",
+        "unity3d.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
-      "Microsoft.EntityFrameworkCore.Sqlite >= 3.1.0"
+      "DotNetCore.Unity >= 4.0.0",
+      "Microsoft.EntityFrameworkCore.Sqlite >= 3.1.0",
+      "unity3d"
     ]
   },
   "packageFolders": {
@@ -1109,11 +1188,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Development\\BasketballSim\\BasketballSim.csproj",
+      "projectUniqueName": "D:\\Development\\BasketballSim\\BasketballSim.csproj",
       "projectName": "BasketballSim",
-      "projectPath": "d:\\Development\\BasketballSim\\BasketballSim.csproj",
+      "projectPath": "D:\\Development\\BasketballSim\\BasketballSim.csproj",
       "packagesPath": "C:\\Users\\gfdav\\.nuget\\packages\\",
-      "outputPath": "d:\\Development\\BasketballSim\\obj\\",
+      "outputPath": "D:\\Development\\BasketballSim\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gfdav\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1138,9 +1217,17 @@
     "frameworks": {
       "netcoreapp3.0": {
         "dependencies": {
+          "DotNetCore.Unity": {
+            "target": "Package",
+            "version": "[4.0.0, )"
+          },
           "Microsoft.EntityFrameworkCore.Sqlite": {
             "target": "Package",
             "version": "[3.1.0, )"
+          },
+          "unity3d": {
+            "target": "Package",
+            "version": "(, )"
           }
         },
         "imports": [

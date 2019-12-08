@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Development\\BasketballSim\\BasketballSim.csproj": {}
+    "D:\\Development\\BasketballSim\\BasketballSim.csproj": {}
   },
   "projects": {
-    "d:\\Development\\BasketballSim\\BasketballSim.csproj": {
+    "D:\\Development\\BasketballSim\\BasketballSim.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Development\\BasketballSim\\BasketballSim.csproj",
+        "projectUniqueName": "D:\\Development\\BasketballSim\\BasketballSim.csproj",
         "projectName": "BasketballSim",
-        "projectPath": "d:\\Development\\BasketballSim\\BasketballSim.csproj",
+        "projectPath": "D:\\Development\\BasketballSim\\BasketballSim.csproj",
         "packagesPath": "C:\\Users\\gfdav\\.nuget\\packages\\",
-        "outputPath": "d:\\Development\\BasketballSim\\obj\\",
+        "outputPath": "D:\\Development\\BasketballSim\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gfdav\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -36,9 +36,17 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
+            "DotNetCore.Unity": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[3.1.0, )"
+            },
+            "unity3d": {
+              "target": "Package",
+              "version": "(, )"
             }
           },
           "imports": [
