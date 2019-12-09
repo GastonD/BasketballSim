@@ -15,6 +15,7 @@ namespace BasketballSim
         public int steals;
         public int blocks;
         public int turnovers;
+        public int totalGamesPlayed;
 
         public PlayerStats(){
             points = 0;
@@ -26,6 +27,7 @@ namespace BasketballSim
             steals = 0;
             blocks = 0;
             turnovers = 0;
+            totalGamesPlayed = 0;
         }
 
         public string ReturnMessage()

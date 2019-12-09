@@ -1,0 +1,17 @@
+@startuml NameGenerator
+class NameGenerator <<sealed>> {
+    - firstNames : String[] = null
+    - lastNames : String[] = null
+    - teamNames : String[] = null
+    NameGenerator()
+    - {static} <<readonly>> padlock : object
+    - {static} instance : NameGenerator = null
+    + {static} Instance : NameGenerator <<get>>
+    + getRndPlayerName() : string
+    + getRndTeamName() : string
+    + getTeamNameByIndex(i:int) : string
+    + getPlayerArrayLength() : int
+    + getTeamArrayLength() : int
+    + printNames() : void
+}
+@enduml

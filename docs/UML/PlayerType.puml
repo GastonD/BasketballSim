@@ -1,0 +1,10 @@
+@startuml PlayerType
+class PlayerType <<sealed>> {
+    - types : List<string> = null
+    + PlayerType()
+    - {static} <<readonly>> padlock : object
+    - {static} instance : PlayerType = null
+    + {static} Instance : PlayerType <<get>>
+    + getRandomPlayerType() : string
+}
+@enduml

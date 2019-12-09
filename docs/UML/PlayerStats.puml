@@ -1,0 +1,16 @@
+@startuml PlayerStats
+class PlayerStats {
+    + points : int
+    + twoPtFGA : int
+    + twoPtFGM : int
+    + threePtFGA : int
+    + threePtFGM : int
+    + rebounds : int
+    + assists : int
+    + steals : int
+    + blocks : int
+    + turnovers : int
+    + PlayerStats()
+    + ReturnMessage() : string
+}
+@enduml

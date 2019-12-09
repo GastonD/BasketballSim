@@ -36,6 +36,16 @@ namespace BasketballSim
         return name;
     }
 
+    public string getRndFirstName(){
+        Random rnd = new Random();
+        return firstNames[rnd.Next(0,firstNames.Length - 1)];
+    }
+
+    public string getRndLastName(){
+        Random rnd = new Random();
+        return lastNames[rnd.Next(0,lastNames.Length - 1)];
+    }
+
     public string getRndTeamName(){
         Random rnd = new Random();
         return teamNames[rnd.Next(0,teamNames.Length-1)];

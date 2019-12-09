@@ -1,0 +1,29 @@
+@startuml Player
+class Player {
+    - <<readonly>> playerName : string
+    - <<readonly>> insideShooting : int
+    - <<readonly>> perimeterShooting : int
+    - <<readonly>> threePointShooting : int
+    - <<readonly>> passing : int
+    - <<readonly>> freeThrow : int
+    - <<readonly>> handling : int
+    - <<readonly>> onBallDefense : int
+    - <<readonly>> insideDefense : int
+    - <<readonly>> stealing : int
+    - <<readonly>> block : int
+    - <<readonly>> offRebounding : int
+    - <<readonly>> defRebounding : int
+    - totalPoints : int
+    - playerType : string
+    - playerTendency : PlayerTendency = null
+    - stats : PlayerStats = null
+    + Player()
+    + getName() : string
+    + getOVR() : int
+    + getOffenseMoveAndRating() : PlayerMoveAndRating
+    + getDefenseMoveAndRating(offensiveMove:string) : PlayerMoveAndRating
+    + getTotalPoints() : int
+    + addPoints(p:int) : void
+    + addAssist(a:int) : void
+}
+@enduml

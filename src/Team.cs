@@ -11,7 +11,7 @@ namespace BasketballSim
         private int teamLosses;
         private int pointsForSeason;
         private int pointsAgainstSeason;
-
+        public int ID;
 
         public Team(string givenName){
             name = givenName;
@@ -20,14 +20,22 @@ namespace BasketballSim
             teamWins = 0;
             teamLosses = 0;
 
-            for (int i = 0; i < 5; i++){
+            /*for (int i = 0; i < 5; i++){
                 players.Add(new Player());
-            }
+            }*/
         }
 
         public void addPointsTotal(int ptsFor, int ptsAgainst){
             pointsForSeason += ptsFor;
             pointsAgainstSeason += ptsAgainst;
+        }
+
+        public void setValues(int id_param, int wins, int losses, int ptsFor, int ptsAgainst){
+            ID = id_param;
+            teamWins = wins;
+            teamLosses = losses;
+            pointsForSeason = ptsFor;
+            pointsAgainstSeason = ptsAgainst;
         }
 
         public string getName(){
@@ -45,7 +53,9 @@ namespace BasketballSim
         }
 
         public void showRoster(){
-            // DEPRECATED TODO NEW
+            foreach(Player p in players){
+                Console.WriteLine(p.getName());
+            }
         }
 
         public void addWin(){
@@ -62,6 +72,10 @@ namespace BasketballSim
 
         public int getLosses(){
             return teamLosses;
+        }
+
+        public void addPlayer(Player p){
+            players.Add(p);
         }
 
     }

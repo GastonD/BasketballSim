@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Data.Sqlite;
 
 namespace BasketballSim
 {
@@ -8,8 +9,13 @@ namespace BasketballSim
         static void Main(string[] args)
         {
             Console.WriteLine("Bienvenido a Basketball Simulator!");
-            createTeams();
-            //MyLeague.Instance.listTeams();
+            Console.WriteLine("");
+
+            DataManager.Instance.createTeams();
+            DataManager.Instance.populateTeams();
+
+            Console.ReadKey();
+
             MyLeague.Instance.setUpSeason();
 
             int daysPlayed = 0;
@@ -22,42 +28,17 @@ namespace BasketballSim
                 daysPlayed +=1;
             }
 
-            LeagueSimulation.Instance.showStats(daysPlayed);
+            Console.WriteLine("Days Played: " + daysPlayed);
+
+            MyLeague.Instance.showStats(daysPlayed);
 
             Console.WriteLine("");
             Console.WriteLine("");
 
             MyLeague.Instance.displayTeamRecords();
-            LeagueSimulation.Instance.getTopScorer();
-            /*var t1 = new Team(NameGenerator.Instance.getRndTeamName());
-            var t2 = new Team(NameGenerator.Instance.getRndTeamName());
-
-            Console.WriteLine("Hoy se enfrentan:");
-            Console.WriteLine(t1.getName() + " vs. " + t2.getName());
-
-            Console.WriteLine("");
+            MyLeague.Instance.getTopScorer();
+            MyLeague.Instance.nextYear();
             
-            
-            int totalGamesPlayed = 0;
-            for(int i = 1; i < 6; i++){
-                Game partido = new Game(t1, t2);
-                partido.playGame();
-                totalGamesPlayed = i;
-            }
-            Console.WriteLine("Se jugaron: "+totalGamesPlayed.ToString() + " partidos.");
-            LeagueSimulation.Instance.showStats(totalGamesPlayed);
-            //partido.playGame();*/
-
-
-            
-        }
-
-        public static void createTeams(){
-            for(int i = 0; i < NameGenerator.Instance.getTeamArrayLength();i++){
-                Team t = new Team(NameGenerator.Instance.getTeamNameByIndex(i));
-                MyLeague.Instance.addTeamToLeague(t);
-            }
-            //Console.WriteLine("Participan de la liga: "MyLeague.Instance.)
         }
 
         public static void playDay(int Day){
@@ -69,9 +50,6 @@ namespace BasketballSim
                 //Console.ReadKey(); 
             }
         }
-
-
-
 
     }
 }

@@ -1,0 +1,20 @@
+@startuml Team
+class Team {
+    - name : string
+    + players : List<Player>
+    - teamWins : int
+    - teamLosses : int
+    - pointsForSeason : int
+    - pointsAgainstSeason : int
+    + Team(givenName:string)
+    + addPointsTotal(ptsFor:int, ptsAgainst:int) : void
+    + getName() : string
+    + getOffRtg() : int
+    + getDefRtg() : int
+    + showRoster() : void
+    + addWin() : void
+    + addLoss() : void
+    + getWins() : int
+    + getLosses() : int
+}
+@enduml

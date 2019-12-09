@@ -1,0 +1,10 @@
+@startuml PlayerMoveAndRating
+class PlayerMoveAndRating {
+    move : string
+    rating : int
+    + PlayerMoveAndRating()
+    + setValues(s:string, i:int) : void
+    + getMove() : string
+    + getRating() : int
+}
+@enduml

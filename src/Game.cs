@@ -40,7 +40,7 @@ namespace BasketballSim
             }
         }
 
-        public static int possession(Team atk, Team def, Dictionary<Player, PlayerStats> atkBxs, int passBonus){
+        public static int possession(Team atk, Team def, Dictionary<Player, PlayerStats> atkBxs, Dictionary<Player, PlayerStats> defBxs, int passBonus){
             Random rnd = new Random();
             int index = 0;
             index = rnd.Next(atk.players.Count);
@@ -77,11 +77,12 @@ namespace BasketballSim
                 }
                 else if (p1Move.getMove().Equals("Pass")){
                     Console.WriteLine(p1.getName() + " passes the ball");
-                    //rework the possession???
-                    passResult = possession(atk,def,atkBxs, passBonus);
+                    
+                    passResult = possession(atk,def,atkBxs, defBxs, passBonus);
 
                     if(passResult > 0){
                         atkBxs[p1].assists += 1;
+                        Console.WriteLine(p1.getName() + "assisted the field goal");
                         score = passResult;
                     }
 
@@ -92,39 +93,32 @@ namespace BasketballSim
                 if (p2Move.getMove().Equals("InsideDef")){
                     Console.WriteLine(p2.getName() + " successfully contest the inside shot");
                     atkBxs[p1].twoPtFGA += 1;
+                    defBxs[p2].rebounds += 1;
                 }
                 else if (p2Move.getMove().Equals("PerimeterDef")){
                     Console.WriteLine(p2.getName() + " successfully contest the perimeter shot");
                     atkBxs[p1].threePtFGA += 1;
                 }
                 else if (p2Move.getMove().Equals("Steal")){
-                    // ACA SUMARLE EL ROBO AL PLAYER
-                    Console.WriteLine(p2.getName() + " successfully contest the perimeter shot");
+                    atkBxs[p1].turnovers += 1;
+                    defBxs[p2].steals += 1;
+                    Console.WriteLine(p2.getName() + " steals the ball");
                 }
             }
 
-            
-            // SUMAR LOS PUNTOS AL BOXSCORE
             return score;
         }
             
         public void playGame(){
 
             for (int i = 0; i < 100; i++){
-                teamOneScore += possession(teamOne, teamTwo, teamOneBoxScore, 0);
-                teamTwoScore += possession(teamTwo, teamOne, teamTwoBoxScore, 0);
+                teamOneScore += possession(teamOne, teamTwo, teamOneBoxScore, teamTwoBoxScore, 0);
+                teamTwoScore += possession(teamTwo, teamOne, teamTwoBoxScore, teamOneBoxScore, 0);
             }
 
             Console.WriteLine("");
             Console.WriteLine("RESULTADO:");
             Console.WriteLine(teamOne.getName() + ": " + teamOneScore + " - " + teamTwo.getName() + ": "+teamTwoScore);
-            /*Console.WriteLine(teamOne.getName() + ": " + teamOneScore);
-            Console.WriteLine("PLANILLA");
-            printBoxScore(teamOneBoxScore);
-            Console.WriteLine("");
-            Console.WriteLine(teamTwo.getName() + ": " + teamTwoScore);
-            Console.WriteLine("PLANILLA");
-            printBoxScore(teamTwoBoxScore);*/
 
             if (teamOneScore > teamTwoScore){
                 teamOne.addWin();
@@ -137,8 +131,8 @@ namespace BasketballSim
             teamOne.addPointsTotal(teamOneScore, teamTwoScore);
             teamTwo.addPointsTotal(teamTwoScore, teamOneScore);
             
-            LeagueSimulation.Instance.addPoints(teamOneBoxScore);
-            LeagueSimulation.Instance.addPoints(teamTwoBoxScore);
+            MyLeague.Instance.addStats(teamOneBoxScore);
+            MyLeague.Instance.addStats(teamTwoBoxScore);
         }
 
         private void printBoxScore(Dictionary<Player, int> boxScore){
