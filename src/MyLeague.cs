@@ -13,13 +13,13 @@ namespace BasketballSim
         private int numDays;
         private int currentDay = 0;
         private Dictionary<Game, int> gameSchedule = null;
-        private Dictionary<Player, int> leaguePlayers = null;
+        private Dictionary<Player, PlayerStats> leaguePlayers = null;
 
         MyLeague(){
             leagueGames = new List<Game>();
             leagueTeams = new List<Team>();
             gameSchedule = new Dictionary<Game, int>();
-            leaguePlayers = new Dictionary<Player, int>();
+            leaguePlayers = new Dictionary<Player, PlayerStats>();
         }
 
         private static readonly object padlock = new object();  
@@ -132,32 +132,41 @@ namespace BasketballSim
             }
         }
 
-        public void addPoints(Dictionary<Player, PlayerStats> boxScore){
+        public void addStats(Dictionary<Player, PlayerStats> boxScore){
             foreach (KeyValuePair<Player, PlayerStats> kvp in boxScore){
                 if(leaguePlayers.ContainsKey(kvp.Key)){
-                    leaguePlayers[kvp.Key] += kvp.Value.points;
-                    //leaguePlayers[kvp.Key] += kvp.Value;
+                    leaguePlayers[kvp.Key].points += kvp.Value.points;
+                    leaguePlayers[kvp.Key].rebounds += kvp.Value.rebounds;
+                    leaguePlayers[kvp.Key].totalGamesPlayed += 1;
+                    leaguePlayers[kvp.Key].steals += kvp.Value.steals;
+                    leaguePlayers[kvp.Key].threePtFGA += kvp.Value.threePtFGA;
+                    leaguePlayers[kvp.Key].threePtFGM += kvp.Value.threePtFGM;
+                    leaguePlayers[kvp.Key].turnovers += kvp.Value.turnovers;
+                    leaguePlayers[kvp.Key].twoPtFGA += kvp.Value.twoPtFGA;
+                    leaguePlayers[kvp.Key].twoPtFGM += kvp.Value.twoPtFGM;
+                    leaguePlayers[kvp.Key].assists += kvp.Value.assists;
+                    leaguePlayers[kvp.Key].blocks += kvp.Value.blocks;
                 }else{
-                    leaguePlayers.Add(kvp.Key,kvp.Value.points);
+                    leaguePlayers.Add(kvp.Key,kvp.Value);
+                    leaguePlayers[kvp.Key].totalGamesPlayed += 1;
                 }
             }
         }
 
         public void showStats(int totalGamesPlayed){
             double ppg = 0;
-            foreach (KeyValuePair<Player, int> kvp in leaguePlayers){
-                ppg = kvp.Value / totalGamesPlayed;
-                Console.WriteLine(kvp.Key.getName() + " Anotó un total de: " + kvp.Value.ToString() + ". Promediando: " + ppg.ToString() + " por partido");
+            foreach (KeyValuePair<Player, PlayerStats> kvp in leaguePlayers){
+                ppg = kvp.Value.points / totalGamesPlayed;
+                Console.WriteLine(kvp.Key.getName() + " Anotó un total de: " + kvp.Value.points.ToString() + ". Promediando: " + ppg.ToString() + " por partido");
             }
                 
         }
 
         public void getTopScorer(){
-            Player topScorer = leaguePlayers.Aggregate((l, r) => l.Value > r.Value ? l : r).Key;
-            Console.WriteLine("{0} is the League's Top Scorer with a total of {1} points and XX PPG", topScorer.getName(),leaguePlayers[topScorer]);
+            Player topScorer = leaguePlayers.Aggregate((l, r) => l.Value.points > r.Value.points ? l : r).Key;
+            Console.WriteLine("{0} is the League's Top Scorer with a total of {1} points in {2} games played. {3} PPG", topScorer.getName(),leaguePlayers[topScorer].points,leaguePlayers[topScorer].totalGamesPlayed, leaguePlayers[topScorer].points / leaguePlayers[topScorer].totalGamesPlayed);
+
         }
-
-
 
     }
 }

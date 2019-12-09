@@ -53,7 +53,9 @@ namespace BasketballSim
         }
 
         public void showRoster(){
-            // DEPRECATED TODO NEW
+            foreach(Player p in players){
+                Console.WriteLine(p.getName());
+            }
         }
 
         public void addWin(){
