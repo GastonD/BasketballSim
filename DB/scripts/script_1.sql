@@ -2,9 +2,7 @@
 DROP TABLE TEAMS;
 --DROP TABLE favorite_beers;
 
-CREATE TABLE TEAMS(ID INTEGER PRIMARY KEY AUTOINCREMENT, 
-                    teamWins INTEGER, teamLosses INTEGER, ptsForSeason INTEGER, 
-                    ptsAgainstSeason INTEGER, name VARCHAR(50));
+CREATE TABLE TEAMS(ID INTEGER PRIMARY KEY, teamWins INTEGER, teamLosses INTEGER, ptsForSeason INTEGER, ptsAgainstSeason INTEGER, name VARCHAR(50));
 
 INSERT INTO TEAMS (teamWins, teamLosses, ptsForSeason, ptsAgainstSeason, name) VALUES (0,0,0,0,"ATENEO");
 INSERT INTO TEAMS (teamWins, teamLosses, ptsForSeason, ptsAgainstSeason, name) VALUES (0,0,0,0,"AGLO");
@@ -19,8 +17,9 @@ INSERT INTO TEAMS (teamWins, teamLosses, ptsForSeason, ptsAgainstSeason, name) V
 
 --SELECT * FROM TEAMS;
 
+--REVISAR IDS PARA QUE SEAN AUTOINCREMENTALES
 CREATE TABLE PLAYERS (
-ID INTEGER PRIMARY KEY AUTOINCREMENT,
+ID INTEGER PRIMARY KEY,
 FIRST_NAME varchar(255) NOT NULL,
 LAST_NAME varchar(255) NOT NULL,
 AGE INTEGER,

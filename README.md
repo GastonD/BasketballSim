@@ -21,6 +21,12 @@ SQLite Docs: <https://www.tutorialspoint.com/sqlite/index.htm>
 
 ## Changelog
 
+### 09/12
+
+- Actualiza BoxScore del partido con todas las stats
+- Actualiza Stats de la liga para todos los players
+- Ahora da el PPG del top scorer
+
 ### 06/12
 
 - Ahora levanta los jugadores y los equipos desde la DB
